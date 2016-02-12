@@ -1,0 +1,30 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+  <div class="col">
+    <!-- modal -->
+    <div ng-controller="ModalDemoCtrl">
+      <script type="text/ng-template" id="myModalContent.html">
+        <div ng-include="'tpl/modalParametros.html'"></div>
+        </script>
+    </div>
+    <!-- /modal -->  
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n font-thin h3 text-black">Face</h1>
+          <small class="text-muted">Bienvenido a San Cristobal</small>
+        </div>
+      </div>
+    </div>
+    <!-- / main header -->
+
+  </div>
+  <!-- / main -->
+  <!-- right col -->
+
+  <!-- / right col -->
+</div>

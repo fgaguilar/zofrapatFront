@@ -1,0 +1,39 @@
+<!-- list -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.HEADER">Navigation</span>
+  </li>
+  <!-- Facturacion -->
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-book icon text-success"></i>
+      <span class="font-bold" translate="aside.nav.BILLING">Facturación</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span translate="aside.nav.BILLING">Facturacion</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <!-- <a ui-sref="app.billing.doscificaciones"> -->
+        <a ui-sref="app.billing.dosificacionesUpdate({dosificacionId:1})">
+          <b class="label bg-info pull-right">D</b>
+          <span>Doscificaciones</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.billing.facturaExportacion">
+          <span>Facturacion</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <!-- fin Facturación -->
+
+</ul>
+<!-- / list -->

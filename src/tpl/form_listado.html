@@ -1,0 +1,57 @@
+<div>
+  <input type="text" ng-model="search" class="search-query" placeholder="Search">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Planilla</th>
+      <th>ID</th>
+      <th>Lote</th>
+      <th>Kilos Netos Húmedos</th>
+      <th>Fecha</th>
+      <th>Creación</th>
+      <th>Factura</th>      
+      <th>      
+        <a class="btn btn-bg btn-primary" ui-sref="app.export.planillaZinc({tipoPlanilla:tipoPlanilla})">Nuevo</a>
+      </th>
+    </tr>
+    
+    </thead>
+    <tbody>
+    <tr ng-repeat="plane in planilla | filter:search | orderBy : 'created_at':true">
+      <td>{{plane.planilla}}</td>
+      <td>{{plane.id}}</td>
+      <td>{{plane.pesoLoteFactores}}</td>
+      <td>{{plane.pesoKilosNetosHumedosPeso}}</td>
+      <td>{{plane.pesoKilosNetosSecosFactores}}</td>
+      <td>{{plane.created_at}}</td>
+      <td>{{plane.impuestoFacturaFactores}}</td>
+      <td>
+      <div class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-bg btn-primary" dropdown-toggle ng-disabled="disabled">
+          Acción <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a ui-sref="app.export.planillaZincUno({tipoPlanilla:tipoPlanilla,planId:plane.id})">Modificar</a></li>
+          <li><a href>Eliminar</a></li>
+          <li><a ui-sref="app.export.imprimirTodo({planId:plane.id})">Imprimir Todo</a></li>
+          <li class="divider"></li>
+          <li><a ui-sref="app.billing.facturaExportacion({planId:plane.id})">Factura</a></li>
+          <li><a href="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/new_report.rptdesign&id={{plane.id}}" target="_blank">Imprimir</a></li>
+          <li class="divider"></li>
+          <li><a ui-sref="app.taxation.verificacionCalculo({planId:plane.id})">Verificación</a></li>
+          <li class="divider"></li>
+          <li><a ui-sref="app.taxation.pagoRegalias({planId:plane.id})">Regalias</a></li>
+          <li><a href="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/regaliaminera.rptdesign&id={{plane.id}}" target="_blank">Imprimir Regalias</a></li>
+          <li class="divider"></li>
+          <li><a ui-sref="app.export.listaEmpaque({planId:plane.id})">Lista Empaque</a></li>
+          <li><a href="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/lista_de_empaque.rptdesign&id={{plane.id}}" target="_blank">Imprimir Lista Empaque</a></li>
+          <li class="divider"></li>
+          <li><a href="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/due.rptdesign&id={{plane.id}}" target="_blank">Imprimir DUE</a></li>
+          <li><a ui-sref="app.taxation.m03({planId:plane.id})">M-03</a></li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  

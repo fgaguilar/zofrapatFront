@@ -1,0 +1,107 @@
+<div class="wrapper-md">
+  <div class="row">
+    <div class="col-sm-3">LOGO</div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3">3.04.P11.F02</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">FORMULARIO LISTA DE EMPAQUE</div>
+    <div class="col-sm-3">Revisión: 2</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3">INTERNA</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Calle Padilla Nº 40</div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Teléfono: 591-2-6120487</div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Fax: 591-2-6120487</div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">POTOSI - BOLIVIA</div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-2">No Lista de Empaque:</div>
+    <div class="col-sm-4">{{planillaC.contenidoListaEmpaqueFactores}}</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Toldos</div>
+    <div class="col-sm-6">{{planillaC.pesoKilosNetosSecosFactores}}</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">COMPRADOR:</div>
+    <div class="col-sm-6">SUMMIT MINERALS GMBH </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">No. LOTE:</div>
+    <div class="col-sm-6">{{planillaC.pesoLoteFactores}}</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">CONCENTRADOS DE:</div>
+    <div class="col-sm-6">Concentrado de {{planillaC.planilla}} y PLATA</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">LUGAR DE DESPACHO:</div>
+    <div class="col-sm-6">Mina San Cristobal, Campamento Toldos, Potosi-Bolivia</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 text-right fondo-gris border-top-left-bold">PESO BRUTO</div>
+    <div class="col-sm-2 text-right fondo-gris border-top-bold">PESO NETO</div>
+    <div class="col-sm-2 text-center fondo-gris border-top-bold">MINERAL</div>
+    <div class="col-sm-2 text-center fondo-gris border-top-bold">UNIDAD</div>
+    <div class="col-sm-2 text-center fondo-gris border-top-right-bold">CONCEPTO</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 border-left-bold text-right">{{planillaC.x14 | number:2}}</div>
+    <div class="col-sm-2 border-midle text-right">{{planillaC.z14 | number:2}}</div>
+    <div class="col-sm-2 border-midle">{{planillaC.planilla}}</div>
+    <div class="col-sm-2 border-midle">Kgr.</div>
+    <div class="col-sm-2 border-right-bold">Con. de {{planillaC.planilla}} y PLATA</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 border-left-bold text-right">{{planillaC.x15 | number:2}}</div>
+    <div class="col-sm-2 border-midle text-right">{{planillaC.z15 | number:2}}</div>
+    <div class="col-sm-2 border-midle">{{planillaC.planilla}}</div>
+    <div class="col-sm-2 border-midle">Kgr.</div>
+    <div class="col-sm-2 border-midle border-right-bold">(a granel)</div>
+  </div>      
+  <div class="row">
+    <div class="col-sm-2 border-bottom-left-bold text-right">{{planillaC.totalx | number:2}}</div>
+    <div class="col-sm-2 border-left border-bottom-bold text-right">{{planillaC.totalz | number:2}}</div>
+    <div class="col-sm-2 border-left border-bottom-bold">&nbsp</div>
+    <div class="col-sm-2 border-left border-bottom-bold">&nbsp</div>
+    <div class="col-sm-2 border-bottom-right-bold">&nbsp</div>
+  </div>  
+   <div class="row">
+  <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-4">
+            <button class="btn m-b-xs btn-lg btn-primary btn-addon" ng-click="imprimir()" ng-disabled="forma.$invalid"><i class="fa fa-plus"></i>Imprimir
+            </button>
+          </div>
+        </div>
+  </div>    
+  <div class="row">
+    <a href="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/lista_de_empaque.rptdesign&id={{planillaC.id}}" target="_blank">IMPRIMIR: Lista Empaque</a>
+  </div>
+</div>
