@@ -11,14 +11,17 @@
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i>  </button>
               </span>
+
             </div>
           </div>
         </div> 
         <div class="row">
           <div class="form-group">
             <label class="col-sm-3 control-label texto-negrilla"># Factura</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control input-sm" ng-model="factura.factura">
+            <div class="col-sm-3">
+
+              <input type="text" class="form-control input-sm" ng-model="factura.factura" disabled="disabled">
+
             </div>
           </div>
         </div>
@@ -30,17 +33,115 @@
             </div>
           </div>
         </div>
+          <div class="row">
+          <div class="form-group">
+            <label class="col-sm-3 control-label texto-negrilla">Nombre</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control input-sm" ng-model="factura.nombre">
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="form-group">
+            <label class="col-sm-3 control-label texto-negrilla">DUI: </label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control input-sm" ng-model="factura.dui">
+            </div>
+          </div>
+          </div> 
+        <div class="row">
+            <label class="col-sm-2 control-label texto-negrilla">Cantidad</label>
+            <label class="col-sm-4 control-label texto-negrilla">Descripcion</label>
+            <label class="col-sm-3 control-label texto-negrilla">Monto Uni</label>
+            <label class="col-sm-3 control-label texto-negrilla">Monto Total</label>
+        </div>
         <div class="row">
           <div class="form-group">
-            <label class="col-sm-3 control-label texto-negrilla">Monto</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control input-sm" ng-model="factura.monto">
+            <div class="col-sm-2">
+              <div class="input-group m-b">
+               <input type="text" class="form-control input-sm" ng-model="factura.cantidad1" ng-value="calcular()">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <div class="input-group m-b">
+                <input type="text" class="form-control input-sm" ng-model="factura.descripcion1">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-3">
+              <div class="input-group m-b">
+                <input type="text" class="form-control input-sm" ng-model="factura.monto1">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-3">
+              <div class="input-group m-b">
+                <input type="text" class="form-control text-right input-sm" ng-value="calcular()" 
+                fraction="2" numeric-input ng-model="factura.montot1" disabled="disabled" required> 
+              </div>
+            </div>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-2">
+              <div class="input-group m-b">
+               <input type="text" class="form-control input-sm" ng-model="factura.cantidad2">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <div class="input-group m-b">
+                <input type="text" class="form-control input-sm" ng-model="factura.descripcion2">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-3">
+              <div class="input-group m-b">
+                <input type="text" class="form-control input-sm" ng-model="factura.monto2">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-3">
+              <div class="input-group m-b">
+                <input type="text" class="form-control text-right input-sm" ng-value="calcular()" 
+                fraction="2" numeric-input ng-model="factura.montot2" disabled="disabled" required> 
+              </div>
+            </div>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label class="col-sm-9 control-label texto-negrilla">Total Factura</label>
+            <div class="col-sm-1">
+            </div>
+          </div>
+          <div class="form-group">
+             <div class="col-sm-2">
+            <div class="input-group m-b">
+              <input type="text" class="form-control text-right input-sm" disabled="disabled" placeholder="calculo" 
+              fraction="2" numeric-input ng-model="factura.montot">
+              <span class="input-group-addon">Bs</span>
+            </div>
+
+            </div>
+             <div class="col-sm-1">
             </div>
           </div>
         </div>
+
+        <div class="row">
+        </div>
         <div class="form-group">
           <div class="col-sm-4 col-sm-offset-4">
-            <button class="btn m-b-xs btn-bg btn-primary btn-addon" ng-click="grabar()" ng-disabled="forma.$invalid"><i class="fa fa-plus"></i>Validar
+            <button class="btn m-b-xs btn-bg btn-primary btn-addon" ng-click="grabar()" ng-disabled="forma.$invalid"><i class="fa fa-plus"></i>Grabar
             </button>
             <button class="btn m-b-xs btn-bg btn-danger btn-addon" ng-click="cancelar()"><i class="fa fa-trash-o"></i>Cancelar</button>
           </div>

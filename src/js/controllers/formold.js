@@ -5,14 +5,9 @@ app.run(function($locale){
 });
 
 
-app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$state,$timeout,$stateParams,Factura,Dosificacion) {
+app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$state,$timeout,$stateParams,Factura) {
   console.log("Ingreso a FacturaExportacionCtrl");
   $scope.factura={};
-
-  $scope.dosificacion2={};
-  $scope.dosificacion2= Dosificacion.get({'dosificacionId': 1}, function(datos2){
-    $scope.factura.factura=datos2.numero;
-  }); 
 
   $scope.cancelar = function(){
     console.log("Ingreso a Cancelar");
@@ -20,6 +15,10 @@ app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$sta
   };
   $scope.grabar = function() {
     console.log("Ingreso a Grabar");
+    
+    $scope.factura.imagenQR=update_qrcode();
+    console.log($scope.factura);
+    
     console.log($scope.factura);
     if ($scope.factura.fecha.getFullYear) {
       $scope.anio=$scope.factura.fecha.getFullYear();
@@ -43,25 +42,12 @@ app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$sta
     }
     $scope.miFecha = new Date($scope.anio,$scope.mes-1,$scope.dia);
     $scope.factura.fecha=$scope.miFecha; 
-    console.log("Antes de factura.save!!!!!!");
     Factura.save($scope.factura, function() {
-      console.log("Ingreso a SAVE");
       $timeout(function() {
-        console.log("Ingreso a timeout");
-        $scope.url="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/new_report.rptdesign&factura=" + $scope.factura.factura;
         window.open($scope.url);
-        $state.go('app.dashboard-v1');
       });
     });
   };
-
-  $scope.calcular = function(){
-      console.log('Ingreso a Calcular!!!');
-      $scope.factura.montot1=$scope.factura.cantidad1*$scope.factura.monto1;
-      $scope.factura.montot2=$scope.factura.cantidad2*$scope.factura.monto2;
-      $scope.factura.montot=($scope.factura.montot1+$scope.factura.montot2);
-      return "";
-    };
 });
 
 app.controller('DosificacionesUpdateCtrl',function ($scope,$location,$timeout,$stateParams,$state,Dosificacion) {

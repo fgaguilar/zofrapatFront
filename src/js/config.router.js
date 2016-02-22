@@ -199,7 +199,7 @@ angular.module('app')
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad){
-                          return uiLoad.load(['js/controllers/form.js','js/directives/formDirectives.js']);
+                          return uiLoad.load(['js/controllers/form.js','js/directives/formDirectives.js','js/app/qr/qr.js']);
                       }]
                   }
               })
