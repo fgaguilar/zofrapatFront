@@ -7,6 +7,7 @@ app.run(function($locale){
 
 app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$state,$timeout,$stateParams,Factura,Dosificacion) {
   console.log("Ingreso a FacturaExportacionCtrl");
+  var planillaId = $stateParams.planId;
   $scope.factura={};
 
   $scope.dosificacion2={};
@@ -46,22 +47,31 @@ app.controller('FacturaExportacionCtrl',function ($scope,$location,$cookies,$sta
     console.log("Antes de factura.save!!!!!!");
     Factura.save($scope.factura, function() {
       console.log("Ingreso a SAVE");
+      console.log($scope.factura);
       $timeout(function() {
         console.log("Ingreso a timeout");
-        $scope.url="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/new_report.rptdesign&factura=" + $scope.factura.factura;
+        $scope.url="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/factura3.rptdesign&factura=" + $scope.factura.factura + 
+        "&qr=http://mscwsus.minera.local:8081/zofrapatback/public/" + $scope.factura.factura +".png";
         window.open($scope.url);
-        $state.go('app.dashboard-v1');
+        //$state.go('app.dashboard-v1');
       });
     });
   };
 
   $scope.calcular = function(){
       console.log('Ingreso a Calcular!!!');
-      $scope.factura.montot1=$scope.factura.cantidad1*$scope.factura.monto1;
-      $scope.factura.montot2=$scope.factura.cantidad2*$scope.factura.monto2;
-      $scope.factura.montot=($scope.factura.montot1+$scope.factura.montot2);
+      //$scope.factura.montot1=$scope.factura.cantidad1*$scope.factura.monto1;
+      //$scope.factura.montot2=$scope.factura.cantidad2*$scope.factura.monto2;
+      //$scope.factura.montot=($scope.factura.montot1+$scope.factura.montot2);
       return "";
     };
+
+    $scope.imprimir = function() {  
+    console.log($scope.factura);
+        $scope.url="http://mscwsus.minera.local:8080/birt/frameset?__report=reportes/factura3.rptdesign&factura=" + $scope.factura.factura + 
+        "&qr=http://mscwsus.minera.local:8081/zofrapatback/public/" + $scope.factura.factura +".png";
+        window.open($scope.url);  
+  };
 });
 
 app.controller('DosificacionesUpdateCtrl',function ($scope,$location,$timeout,$stateParams,$state,Dosificacion) {

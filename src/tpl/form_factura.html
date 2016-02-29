@@ -59,7 +59,7 @@
           <div class="form-group">
             <div class="col-sm-2">
               <div class="input-group m-b">
-               <input type="text" class="form-control input-sm" ng-model="factura.cantidad1" ng-value="calcular()">
+               <input type="text" class="form-control input-sm" ng-model="factura.cantidad1">
               </div>
             </div>
           </div>
@@ -80,8 +80,8 @@
           <div class="form-group">
             <div class="col-sm-3">
               <div class="input-group m-b">
-                <input type="text" class="form-control text-right input-sm" ng-value="calcular()" 
-                fraction="2" numeric-input ng-model="factura.montot1" disabled="disabled" required> 
+                <input type="text" class="form-control text-right input-sm" 
+                fraction="2" numeric-input ng-model="factura.montot1"  required> 
               </div>
             </div>
           </div>          
@@ -111,8 +111,8 @@
           <div class="form-group">
             <div class="col-sm-3">
               <div class="input-group m-b">
-                <input type="text" class="form-control text-right input-sm" ng-value="calcular()" 
-                fraction="2" numeric-input ng-model="factura.montot2" disabled="disabled" required> 
+                <input type="text" class="form-control text-right input-sm"
+                fraction="2" numeric-input ng-model="factura.montot2"  required> 
               </div>
             </div>
           </div>          
@@ -126,7 +126,7 @@
           <div class="form-group">
              <div class="col-sm-2">
             <div class="input-group m-b">
-              <input type="text" class="form-control text-right input-sm" disabled="disabled" placeholder="calculo" 
+              <input type="text" class="form-control text-right input-sm" placeholder="calculo" 
               fraction="2" numeric-input ng-model="factura.montot">
               <span class="input-group-addon">Bs</span>
             </div>
@@ -144,8 +144,9 @@
             <button class="btn m-b-xs btn-bg btn-primary btn-addon" ng-click="grabar()" ng-disabled="forma.$invalid"><i class="fa fa-plus"></i>Grabar
             </button>
             <button class="btn m-b-xs btn-bg btn-danger btn-addon" ng-click="cancelar()"><i class="fa fa-trash-o"></i>Cancelar</button>
+            <button class="btn m-b-xs btn-bg btn-danger btn-addon" ng-click="imprimir()"><i class="fa fa-trash-o"></i>Imprimir</button>
           </div>
-        </div>
+          </div>
       </form>
     </div>
     <div class="panel-heading font-bold" ng-show="longitud">Factura de Exportación ya validada con Codigo de Control</div>
